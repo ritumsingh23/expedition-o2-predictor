@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Predicting GDP per capita for countries using several factors</title>
+        <title>Predicting the requirement of O2 on an expedition using several factors</title>
         <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
@@ -14,7 +14,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Country GDP predictor</a>
+                <a class="navbar-brand" href="#page-top">O2 predictor</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
@@ -30,7 +30,7 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Predicting GDP per capita for countries using several factors</h1>
+                <h1 class="fw-bolder">Predicting the requirement of O2 on an expedition using several factors</h1>
                 <p class="lead">A data science project by AI Camp students</p>
                 <a class="btn btn-lg btn-light" href="#about">See our work below</a>
             </div>
@@ -42,7 +42,7 @@
                     <div class="col-lg-8">
                         <h2>What does the project do?
                         </h2>
-                        <p class="lead">In our dataset, there is information on population height, literacy, infant mortality, etc... that correlate with each other in interesting ways. Our goal will be to predict the wealth of nations, which will be measured in GDP per capita. Looking at same characteristics of the dataset, the GDP per capita ranges from $500 to $55,100 and has a standard deviation of $9834</p>
+                        <p class="lead">The expeditions dataset consists of information of the past expeditions in the himalayan region, such as the netionality of the expeditioners, the meximum elevevation reached, the seasion of expedition, etc... The goal of this project will be to train the model in a way that it can predict the requirement of O2 in a upcoming expedition based on the selected variables. Here the maximum elevation reached in any expedition is 8850 meters.</p>
                     </div>
                 </div>
             </div>
@@ -55,19 +55,34 @@
                     <h1 id="top-level-heading">Exploration</h1><br/>
                     </div>
                     <div class="col-lg-8">
-                        <h3>Exploration of data: Correlation table heatmap</h3>
-                        <p class="lead">First, we created a correlation table to see how different features correlated with the wealth of nations. Some surprising results were that the number of phones per hundred people and male height in cm were highly correlated with GDP per capita. Meanwhile, birthrate and infant mortality were highly negatively correlated</p>
-                    <iframe width="900" height="900" title="Correlation Table of Features" src="{{url_for('static', filename='all_correlation_map.html')}}"></iframe> <br>
+                        <h3>Exploration of data: Bar plot of top 5 most visited peaks in the Himalayan region</h3>
+                        <p class="lead">The below bar plot represents the top 25 most popular peaks in the himalayan region. Its surprising to see that dispite being the highest peak, the Mount Everest is still the most visited peak in the region.</p>
+                    <iframe width="800" height="500" title="Bar plot of top 25 most visited peaks" src="{{url_for('static', filename='Top-25-visited-peaks.html')}}"></iframe> <br>
                     </div>
                     <div class="col-lg-8">
-                        <h3>Exploration of data: Scatterplots</h3>
-                        <p class="lead">Scatterplots clearly demonstrate to us more positive and negative trends in our data. Most surprising to us is that as agricultural goes to zero, GDP becomes exponentially higher.</p>
-                        <iframe width="700" height="700" title="Scatterplots of features in relation to GDP" src="{{url_for('static', filename='GDP scatterplots.html')}}"></iframe> <br><br>
+                        <h3>Exploration of data: Bar plot with colored segregation</h3>
+                        <p class="lead">The bar plot shows the top 5 most participating countries in each of the 25 most popular peaks. The most surprising insight is the fact that despite being the furthest away from the himalayan region, the United States has the elading presence in the top 4 peaks in the region (Everest, Ama Dublam, Cho Kyo and Lhotse).</p>
+                        <iframe width="800" height="500" title="Top 5 participating countries" src="{{url_for('static', filename='Top-5-participating_countries.html')}}"></iframe> <br><br>
                     </div>
                     <div class="col-lg-8">
-                        <h3>Visualization of crucial features</h3>
-                        <p class="lead">We isolated the above features that we saw as most important and turned them into their own correlation table, so that we can see how these crucial features affect wealth.</p>
-                        <iframe width="800" height="800" title="Crucial Features Hetmap" src="{{url_for('static', filename='crucial_features_heatmap.html')}}"></iframe>  
+                        <h3>Exploration of data: Line plot of success rate</h3>
+                        <p class="lead">In this line plot we observe the motivation factor of attempting to summit the 25 most visted peaks in the himalayan region. Yet another surprise is that Everest, albeit is the most popular peak in the region, but still ranks 5th in the success rate spectrum.</p>
+                        <iframe width="800" height="500" title="Success rate at each of top 25 countries" src="{{url_for('static', filename='Success-rate-top-25-peaks.html')}}"></iframe>  
+                    </div>
+                    <div class="col-lg-8">
+                        <h3>Exploration of data: Bar plot </h3>
+                        <p class="lead">In this plot we observe a clear height based distinction. Above 6600m there requirement of O2 when on an expedition.</p>
+                        <iframe width="800" height="500" title="O2 used VS Max elevation reached" src="{{url_for('static', filename='O2-used-VS-max-elevation-reached.html')}}"></iframe>  
+                    </div>
+                    <div class="col-lg-8">
+                        <h3>Exploration of data: Line plot of max elevation reached </h3>
+                        <p class="lead">This line plot gives insight about the maximum elevation reached on reach of the top 25 peaks. This is important because it playes a vital role in the determining the need of O2 in an expedition on these peaks.</p>
+                        <iframe width="800" height="500" title="Average maximum elevation reached" src="{{url_for('static', filename='Average-max-elevation-reached-top-25-peaks.html')}}"></iframe>  
+                    </div>
+                    <div class="col-lg-8">
+                        <h3>Exploration of data: Colored bar plot </h3>
+                        <p class="lead">This graph plays an important role in determining the requirement of nationality feature in the predition analysis. Here we notice two valuable and interesting point. The first is that there is a wide range of distribution among different counties when it comes to average number of expeditions where O2 was used (therefore is a necessary feature for predition of O2 requirement. Seconds, we've noticed the participation of US based groups in more expeditions when compared to the rest on everest, yet their average number of expeditions requiring O2 is relatively less.</p>
+                        <iframe width="800" height="400" title="Country-wise distribution of on average O2 requirement" src="{{url_for('static', filename='Distribution-of-o2-required-by-reach-country.html')}}"></iframe>  
                         <br>
                     </div>
                 </div>
@@ -81,39 +96,112 @@
                         <h1>Machine Learning</h1></br>
                     </div>
                     <div class="col-lg-8">
-                        <h2>Linear Regression: Explanation</h2>
-                        <p class="lead">First, we want to try a baseline linear regression. Linear regression assumes that all features are have a linear relation with GDP per capita, and we can fit a line of best fit to predict future values</p>
-                        <img src="{{url_for('static', filename='images/LinearExplanation.png')}}" class="page-image" />
+                        <h2>Logistic Regression: Explanation</h2>
+                        <p class="lead">First the baseline logistic regression was applied. Further, since there is a scope of linear separation of data based on the max_elev_reached features as evident from 'O2 used VS Max elevation reached' graph in the EDA section, this might as well be the final model after comparison with other models.</p>
                     </div>
 
                     <div class="col-lg-8">
-                        <h2>Linear Regression: Results</h2>
-                        <p class="lead">Here we have a confusion matrix with the results of the linear regression applied on our testing dataset. A confusion matrix for a classification problem tells us the number of correct and incorrect predictions for every class (for example wealthy). For example, the model may have classified 10 countries with average GDP as average and classified 2 countries with average GDP incorrectly, shown in the below confusion matrix. Linear regression performed exceptionally well on countries with average GDP.</p>
-                        <iframe width="500" height="500" title="Linear Regression Confusion Matrix" src="{{url_for('static', filename='LinearRegressionCF.html')}}"></iframe>  
-                        <p class="lead">By calculating the total correct examples over all examples classified, we get an average accuracy of around 58%. Mean absolute error, or the average difference between predicted and actual GDP per capita, was $3299</p>
+                        <h2>Logistic Regression: Results</h2>
+                        <p class="lead">Below is the confusion matrix from the logistic regression model. </p>
+                        <iframe width="500" height="500" title="Linear Regression Confusion Matrix" src="{{url_for('static', filename='LogisticRegression-Confusion-Matrix.html')}}"></iframe>  
+                        <p class="lead">From the above confusion matrix it can be observed that the false negative value using the logistic regression is 111, which in turn converts to a recall of 81.46%. Which is decent considering the fact that for a prediction of O2 for an expedition we need the recall to be as high as possible to avoid any deaths because of incorrectly judged requirement of O2.</p>
                     </div>
                     <div class="col-lg-8">
-                        <h2>Neural Networks: Explanation</h2>
-                        <p class="lead">Neural networks are one of the most powerful machine learning approaches for data with complicated patterns, but are more prone to overfitting to simple data.</p>
-                        <img src="{{url_for('static', filename='images/nn_explanation.png')}}" class="page-image" width="500"/>
+                        <h2>Random Forest: Explanation</h2>
+                        <p class="lead">An ensemble technique to ensure the best results. Though, with this method, it is necessary to keep a check on overfitting which we will consider, looking at the train and test accuracies of the model.</p>
                     </div>
 
                     <div class="col-lg-8">
-                        <h2>Neutral Networks: Results</h2>
-                        <p class="lead">Looking at the confusion matrix below, the neural network performed much better on wealthy and very wealthy nations.</p>
-                        <iframe width="500" height="500" title="Neural Network Confusion Matrix" src="{{url_for('static', filename='NeuralNetworkCF_matrix.html')}}"></iframe>
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
+                        <h2>Random Forest: Results</h2>
+                        <p class="lead">Below is the confusion matrix from the random forest models.</p>
+                        <iframe width="500" height="500" title="Random Forest Confusion Matrix" src="{{url_for('static', filename='RandomForest-Confusion-Matrix.html')}}"></iframe>
+                        <p class="lead">From the above confusion matrix it can be observed that the false negative value using the random forest is 149, which implies thatthe recall is 75%. This recall value is comparatively low when compared to that of the logistic regression and hence use of this model as the model of this prediction is not recommended. Further, as the comparison table shows, random forest is not generalizable given the vast different between the test and train accuracy, indicating overfitting.</p>
                     </div>
                     <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Explanation</h2>
-                        <p class="lead">K Nearest Neighbors looks at data points in the testing set and infers the classification based on similarity to other points of the same class in the training set.</p>
-                        <img src="{{url_for('static', filename='images/knn_explanation.jpeg')}}" class="page-image" width="500"/>
+                        <h2>SVM: Explanation</h2>
+                        <p class="lead">Support Vector Machine (SVM) is another linear technique applied to this dataset. SVM is known to be quick learner with less data to train on.</p>
                     </div>
                     <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Results</h2>
-                        <p class="lead">Looking at our confusion matrix below, K Nearest Neighbors performed well on very wealthy and ver poor nations.</p>
-                        <iframe width="500" height="500" title="KNN Confusion Matrix" src="{{url_for('static', filename='KNN_CF_matrix.html')}}"></iframe>  
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
+                        <h2>SVM: Results</h2>
+                        <p class="lead">Below is the confusion matrix from the support vector maching model.</p>
+                        <iframe width="500" height="500" title="SVM Confusion Matrix" src="{{url_for('static', filename='SVM-Confusion-Matrix.html')}}"></iframe>  
+                        <p class="lead">Unfortunately, the SVM model follows the similar recall rate as that of the random forest above i.e., 75%. This makes is a weak candidate for this project as the recall rate is relatively low when compared to logistic regression. </p>
+                    </div>
+                    <div class="col-lg-8">
+                      <h2>Neural Network: Explanation</h2>
+                      <p class="lead">Neural networks are one of the most powerful machine learning approaches for data with complicated patterns, but are more prone to overfitting to simple data.</p>
+                    </div>
+                    <div class="col-lg-8">
+                      <h2>Neural Network: Results</h2>
+                      <p class="lead">Below is the confusion matrix from the Neural Network model.</p>
+                      <iframe width="500" height="500" title="Neural Network Confusion Matrix" src="{{url_for('static', filename='NeuralNet-Confusion-Matrix.html')}}"></iframe>  
+                      <p class="lead">The Neural Network model is the second candidate that can be used for this project, given the fact that it has the highest recall rate of 84.3% with the false negative value as 94 (lowest in the 4 models). Though this is a strongest candidate in the 4 models, the accuracy values and F1 score is the lowest in the 4.</p>
+                    </div>
+                    <div class="col-lg-8">
+                      <h2>Result Comparison of the 4 models</h2>
+                      <p class="lead">Below is a table comparing the 4 models on different evaluation metrics.</p>
+                      <table class="dataframe1">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>model_name</th>
+                            <th>train_accuracy</th>
+                            <th>test_accuracy</th>
+                            <th>F1_score</th>
+                            <th>precision</th>
+                            <th>recall</th>
+                            <th>False_Negative</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th></th>
+                            <td>LogisticRegression</td>
+                            <td>0.915951</td>
+                            <td>0.902321</td>
+                            <td>0.828523</td>
+                            <td>0.842832</td>
+                            <td>0.814691</td>
+                            <td>0.185309</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td>RandomForest</td>
+                            <td>0.989479</td>
+                            <td>0.892650</td>
+                            <td>0.802139</td>
+                            <td>0.860421</td>
+                            <td>0.751252</td>
+                            <td>0.248748</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td>SVM</td>
+                            <td>0.918128</td>
+                            <td>0.897002</td>
+                            <td>0.802139</td>
+                            <td>0.860421</td>
+                            <td>0.751252</td>
+                            <td>0.248748</td>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <td>Neural Network</td>
+                            <td>0.916677</td>
+                            <td>0.878627</td>
+                            <td>0.800952</td>
+                            <td>0.762840</td>
+                            <td>0.843072</td>
+                            <td>0.156928</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                        <iframe width="500" height="500" title="Comparing Recall of the 4 models" src="{{url_for('static', filename='Recall-score-comparison.html')}}"></iframe>  
+                        <iframe width="500" height="500" title="Comparing F1-score of the 4 models" src="{{url_for('static', filename='F1-score-comparison.html')}}"></iframe>  
+                        <p class="lead">The above table compares the 4 models on basis of their accuracies, F1_score, Precision, Recall and False Negative. The primary evaluation metric would be the Recall and a secondary evalutation metric would be F1 Score.
+                          Based on the recall values we have neural network as the winner. However, when we consider the F1 scores, logistic regression leads the camparison. Considering the safety of the mounteneers, a higher recall is preferred. Therefore, we move ahead with neural nework model with a recall as 84.3% and F1-score as 80.09%.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -126,11 +214,17 @@
                     </div>
                     <div class="col-lg-8">
 
-                        <p class="lead">In conclusion, neural networks clearly performed the best on our dataset for predicting GDP per capita. Positively correlated features like height and phone usage along with negatively correlated features like birthrate and agriculture helped us achieve these results. </p>
+                        <p class="lead">In conclusion of the project findings, we can clearly see based on the recall and false-negative scores that Neural Network and Logistic Regression lead the model generalizability along with good accuracies of 87.8% and 90.2% respectively. Further, it is known that Neural Networks, are strong predictors of models where the training data is large (in this case 8269). However, models based on neural networks have relatively low interpretability in comparison to the simpler linear models (such as Logistic Regression and SVM). In this case, considering the recall score, the neural network model stands at the top. It is very important in cases of high altitude mountaineering to have O2 stocked up in case it is required 7K m plus above sea level and hence despite a slightly lower accuracy, when compared to other models, for this task we will move forward with the neural network as our model of choice.
+                            As a plausible extension to this project, it would be a plus point for the users using this product to get information about
+                            
+                            1. dynamic data addition using the lastest predictions to help the model learn as it predicts
+                            2. tune the hyperparameters of the Neural Network model to achieve better results
+                            
+                            </p>
 
                         <h3>So what?</h3>
                             
-                        <p class="lead">So what is the significance of our project? Because we know which features are most correlated with a higher GDP country, we can identify both the factors that lead to countries with higher monetary value and also predict and then invest in countries with a high likelihood of future growth. </p>
+                        <p class="lead">So what is the significance of our project? Since we are aware of the best features needed to predict the target "is_o2_used" based on domain knowleged and Neural Network as the model of choice, we can efficiently predict the requirement of O2 in a future expedition.</p>
                     </div>
                 </div>
             </div>
@@ -149,10 +243,10 @@
               <!-- Team Member 1 -->
               <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/rohan_img.png')}}" class="card-img-top" alt="...">
+                  <img src="{{url_for('static', filename='images/ritum_singh.png')}}" class="card-img-top" alt="...">
                   <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Rohan Joshi</h5>
-                    <div class="card-text text-black-50">Web Developer</div>
+                    <h5 class="card-title mb-0">Ritum Singh</h5>
+                    <div class="card-text text-black-50">Data Science Intern</div>
                   </div>
                 </div>
               </div>
